@@ -1,0 +1,13 @@
+﻿@page "/"
+
+@if(CurrentState == ClockState.Clock)
+{
+	<Clock/>
+}
+
+@code {
+
+	private enum ClockState{ Clock, Gacha, Customize, Setting};
+	ClockState CurrentState = ClockState.Clock;
+
+}

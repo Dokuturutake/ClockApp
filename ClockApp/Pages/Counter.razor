@@ -1,0 +1,54 @@
+﻿@page "/counter"
+@using System.Timers
+<style>
+	.clockCentering{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	}
+</style>
+
+<p role="status">Current count: @currentCount</p>
+<div class="clockCentering">
+	<svg width="@clockSize" height="@clockSize" viewBox="0 0 300 300">
+		<circle cx="150" cy="150" r="140" stroke="black" fill="white" />
+		<image x="140" y="40" width="20" height="120" href="@secondImage" transform="rotate(@secondAngle, 150, 150)" />
+			<image x="140" y="60" width="20" height="100" href="@minuteImage" transform="rotate(@minuteAngle, 150, 150)" /> // 分針の画像を追加
+		<image x="140" y="80" width="20" height="80" href="@hourImage" transform="rotate(@hourAngle, 150, 150)" /> // 時針の画像を追加
+	</svg>
+</div>
+
+@code {
+	int currentCount=0;
+
+	private static int timerFrequency = 60; // 60Hz
+	private static double interval => 1000 / (double)timerFrequency; // ミリ秒単位
+	private static Timer timer = new Timer(interval); // タイマーを作成
+
+	private double secondAngle = 0; // 秒針の角度（度単位）
+	private double minuteAngle = 0; // 分針の角度（度単位）
+    private double hourAngle = 0; // 時針の角度（度単位）
+
+	    private string secondImage = "/images/second.svg"; // 秒針の画像（URL）
+    private string minuteImage = "/images/minute.svg"; // 分針の画像（URL）
+    private string hourImage = "/images/hour.svg"; // 時針の画像（URL）
+
+	private double clockSize = 300;
+
+	public Counter()
+	{
+		timer.Elapsed += TimerCallback; // タイマーのイベントハンドラにTimerCallback関数を登録
+		timer.Start(); // タイマーを開始
+	}
+
+	void TimerCallback(object sender, ElapsedEventArgs e)
+	{
+		currentCount = currentCount + 1;
+		var now = DateTime.Now; // 現在時刻を取得
+		secondAngle = (now.Second + now.Millisecond / 1000.0) * 6;
+		minuteAngle = (now.Minute + now.Second / 60.0) * 6; // 分針の角度を計算（度単位）
+        hourAngle = (now.Hour % 12 + now.Minute / 60.0) * 30; // 時針の角度を計算（度単位）
+
+       	InvokeAsync(StateHasChanged);
+	}
+}

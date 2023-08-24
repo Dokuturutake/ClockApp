@@ -1,0 +1,57 @@
+﻿@using System.Timers
+
+<div class="clockCentering center">
+	<svg width="@clockSize" height="@clockSize" viewBox="0 0 300 300">
+		<image width="300" height="300" href="@dialImage"/>
+		<image width="300" height="300" href="@indexImage"/>
+		<image x="136.5" y="18" width="27" height="209" href="@hourImage" transform="rotate(@hourAngle, 150, 150)"/> // 時針の画像を追加
+		<image x="136.5" y="18" width="27" height="209" href="@minuteImage" transform="rotate(@minuteAngle, 150, 150)" /> // 分針の画像を追加
+		<image x="136.5" y="18" width="27" height="209" href="@secondImage" transform="rotate(@secondAngle, 150, 150)" />
+	</svg>
+</div>
+
+@code {
+
+	private enum state{ Clock, Gacha, Customize, Setting};
+	state CurrentState = state.Clock;
+
+	private static int timerFrequency = 60; // 60Hz
+	private static double interval => 1000 / (double)timerFrequency; // ミリ秒単位
+	private static Timer timer = new Timer(interval); // タイマーを作成
+
+	private static double secondAngle = 0; // 秒針の角度（度単位）
+	private static double minuteAngle = 0; // 分針の角度（度単位）
+	private static double hourAngle = 0; // 時針の角度（度単位）
+
+	private string imageFolder = "images";
+	private string handFolder = "ClockHands";
+	private string handHref = "OldClock";
+	private string GetClockHandsFolder => Path.Combine(imageFolder,handFolder, handHref);
+
+	private string secondImage; // 秒針の画像（URL）
+	private string minuteImage ; // 分針の画像（URL）
+	private string hourImage; // 時針の画像（URL）
+	private string dialImage= "/images/ClockDial/OldClockDial.svg"; // 時針の画像（URL）
+	private string indexImage= "/images/ClockIndex/OldClockIndex.svg"; // 時針の画像（URL）
+
+
+	private double clockSize = 400;
+
+	public Clock()
+	{
+		secondImage = Path.Combine(GetClockHandsFolder,"SecondHand.svg") ;
+		minuteImage = Path.Combine(GetClockHandsFolder,"MinuteHand.svg") ;
+		hourImage = Path.Combine(GetClockHandsFolder,"HourHand.svg") ;
+		timer.Elapsed += TimerCallback; // タイマーのイベントハンドラにTimerCallback関数を登録
+		timer.Start(); // タイマーを開始
+	}
+
+	void TimerCallback(object sender, ElapsedEventArgs e)
+	{
+			var now = DateTime.Now; // 現在時刻を取得
+			secondAngle = (now.Second + now.Millisecond / 1000.0) * 6;
+			minuteAngle = (now.Minute + now.Second / 60.0) * 6; // 分針の角度を計算（度単位）
+			hourAngle = (now.Hour % 12 + now.Minute / 60.0) * 30; // 時針の角度を計算（度単位）
+		InvokeAsync(StateHasChanged);
+	}
+}
