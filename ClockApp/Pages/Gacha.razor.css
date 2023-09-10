@@ -1,0 +1,48 @@
+﻿.Centering{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.rotate{
+    transform-origin:50.2%  67.8%;
+   animation: rotate 2s linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.drop{
+      animation: drop1 2s ease-in;
+}
+
+@keyframes drop1 {
+  0% {
+    transform: translateY(-22%);
+    animation-timing-function: ease-in;
+  }
+  70% {
+    transform: translateY(-20%);
+  }
+  90% {
+    animation-timing-function: ease-in;
+    transform: translateY(0);
+  }
+  95% {
+    animation-timing-function: ease-out;
+    transform: translateY(-1%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,30 @@
+﻿<div class="Centering">
+	<svg width="400" height="647.2" viewBox="0 0 1000 1618">
+		<image width="1000" height="1618" href="/images/Gacha/GachaOut2.0.svg" />
+		@if(isHandleAnimation){
+			<image class="drop" x="445" y="1300" width="115.2" height="115.2" href="/images/Gacha/GachaCapsule2.0.svg" />
+		}
+		<image width="1000" height="1618" href="/images/Gacha/GachaBase2.0.svg"/>
+		<image  class="@handleAnimationClass" width="1000" height="1618" href="/images/Gacha/GachaHandle2.0.svg" />
+		<image width="1000" height="1618" href="/images/Gacha/GachaOutFront2.0.svg" />
+		<circle cx="502" cy="1098" r="150" fill="transparent" @onclick="HandleClicked" />
+
+		@if(isHandleAnimation){
+			<circle cx="502" cy="1350" r="150" fill="transparent" @onclick="CapsureClicked" />
+		}
+	</svg>
+	</div>
+@code {
+	bool isHandleAnimation = false;
+	string handleAnimationClass => isHandleAnimation ? "rotate": "";
+	void HandleClicked(MouseEventArgs sender)
+	{
+		isHandleAnimation = true;
+	}
+
+	void CapsureClicked(MouseEventArgs sender)
+	{
+		isHandleAnimation = false;
+	}
+
+}

@@ -50,6 +50,17 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Include="wwwroot\MasterDatas\MasterBackGround.csv" />
+      <None Include="wwwroot\MasterDatas\MasterDial.csv" />
+      <None Include="wwwroot\MasterDatas\MasterDialBackGround.csv" />
+      <None Include="wwwroot\MasterDatas\MasterHourHand.csv" />
+      <None Include="wwwroot\MasterDatas\MasterImageData.csv" />
+      <None Include="wwwroot\MasterDatas\MasterIndex.csv" />
+      <None Include="wwwroot\MasterDatas\MasterMinuteHand.csv" />
+      <None Include="wwwroot\MasterDatas\MasterSecondHand.csv" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     </ItemGroup>
 

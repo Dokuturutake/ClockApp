@@ -1,19 +1,116 @@
 ﻿@using System.Timers
+@using ClockApp.Data;
+<style>
+	.editer{
+	  display: flex;
+	  width: 100vw;
+	  height: 40vh;
+	  flex-direction: column;
+	  box-shadow: 0 -5px 5px rgba(0,0,0,0.2);
+	overflow: auto;
+	}
+	.editer::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+	}
+	.editer::-webkit-scrollbar-track {
+	 border-radius: 5px;
+	 background: transparent;
+	}
+	.editer::-webkit-scrollbar-thumb {
+	 border-radius: 5px;
+	 background-color: #fff;
+	 mix-blend-mode:difference;
 
-<div class="clockCentering center">
-	<svg width="@clockSize" height="@clockSize" viewBox="0 0 300 300">
-		<image width="300" height="300" href="@dialImage"/>
-		<image width="300" height="300" href="@indexImage"/>
-		<image x="136.5" y="18" width="27" height="209" href="@hourImage" transform="rotate(@hourAngle, 150, 150)"/> // 時針の画像を追加
-		<image x="136.5" y="18" width="27" height="209" href="@minuteImage" transform="rotate(@minuteAngle, 150, 150)" /> // 分針の画像を追加
-		<image x="136.5" y="18" width="27" height="209" href="@secondImage" transform="rotate(@secondAngle, 150, 150)" />
+}
+	.handset{
+		background-color:#CECE5A;
+	}
+	.dialset{
+		background-color:#FFE17B;
+	}
+	.indexset{
+		background-color:#FD8D14;
+	}
+	.backgroundset{
+		background-color:#C51605;
+	}
+	.hamburger-top{
+		height:8vh;
+		width:100%;
+	}
+	.contain{
+		margin:auto;
+		height:8vh;
+		width:100%;
+		display:flex;
+		flex-direction: row;
+
+	}
+	.itemWrap{
+		height:100%;
+		width:100%;
+	  box-shadow: 0px -5px 5px rgba(0,0,0,0.3);
+	  border-radius: 10px 10px 0  0;
+	}
+	input[type="radio"]:checked+label {
+  z-index: 99999;
+}
+</style>
+
+<div class="custombutton">
+<span class="oi oi-wrench" aria-hidden="true" @onclick="ToggleShow"></span>
+</div>
+
+<div class="clockCentering @ShowClass">
+	<svg width="100%" height="100%" viewBox="0 0 300 300">
 	</svg>
 </div>
 
-@code {
+@* ハンバーガービューのコンポーネント *@
+<div class="hamburger-view @ShowClass">
+	<div class="hamburger-top">
+	<div class="contain">
+				<input checked type="radio" id="hand" name="SetteingState" value="Hand" @onchange="() => SetSettingState(SettingState.Hand)"/>
+				<label for="hand" class="itemWrap handset">
+				</label>
+				<input type="radio" id="dial" name="SetteingState" value="Dial" @onchange="() => SetSettingState(SettingState.Dial)"/>
+				<label for="dial" class="itemWrap dialset">
+				</label>
+				<input type="radio" id="index" name="SetteingState" value="Index" @onchange="() => SetSettingState(SettingState.Index)"/>
+				<label for="index" class="itemWrap indexset">
+				</label>
+				<input type="radio" id="background" name="SetteingState" value="Background" @onchange="() => SetSettingState(SettingState.BackGround)"/>
+				<label for="background" class="itemWrap backgroundset">
+				</label>
+		</div>
+	</div>
 
-	private enum state{ Clock, Gacha, Customize, Setting};
-	state CurrentState = state.Clock;
+	@switch (CurrentSettingState)
+	{
+		case SettingState.Hand:
+			<div class="editer handset">
+			</div>
+			break;
+
+		case SettingState.Index:
+			<div class="editer indexset">
+			</div>
+			break;
+
+		case SettingState.Dial:
+			<div class="editer dialset">
+			</div>
+			break;
+
+		case SettingState.BackGround:
+			<div class="editer backgroundset">
+			</div>
+			break;
+	}
+</div>
+
+@code {
 
 	private static int timerFrequency = 60; // 60Hz
 	private static double interval => 1000 / (double)timerFrequency; // ミリ秒単位
@@ -23,35 +120,98 @@
 	private static double minuteAngle = 0; // 分針の角度（度単位）
 	private static double hourAngle = 0; // 時針の角度（度単位）
 
-	private string imageFolder = "images";
-	private string handFolder = "ClockHands";
-	private string handHref = "OldClock";
-	private string GetClockHandsFolder => Path.Combine(imageFolder,handFolder, handHref);
+	public int CurrentHourHandNum = 1;
+	public int CurrentMinuteHandNum = 1;
+	public int CurrentSecondHandNum = 1;
+	public int CurrentDialNum = 1;
+	public int CurrentIndexNum = 1;
+	public int CurrentDialBackgroundNum = 1;
+	public int CurrentBackgroundNum = 1;
 
-	private string secondImage; // 秒針の画像（URL）
-	private string minuteImage ; // 分針の画像（URL）
-	private string hourImage; // 時針の画像（URL）
-	private string dialImage= "/images/ClockDial/OldClockDial.svg"; // 時針の画像（URL）
-	private string indexImage= "/images/ClockIndex/OldClockIndex.svg"; // 時針の画像（URL）
+	private ClockCustomManager CCM = new ClockCustomManager();
 
-
-	private double clockSize = 400;
+	ClockParts CP;
+	private ClockPart secondURL;  // 秒針の画像（URL）
+	private ClockPart minuteURL;  // 分針の画像（URL）
+	private ClockPart hourURL; // 時針の画像（URL）
+	private ClockPart indexURL;
+	private ClockPart dialURL;
+	private ClockPart dialBackgroundURL;
+	private ClockPart backGroundURL;
 
 	public Clock()
 	{
-		secondImage = Path.Combine(GetClockHandsFolder,"SecondHand.svg") ;
-		minuteImage = Path.Combine(GetClockHandsFolder,"MinuteHand.svg") ;
-		hourImage = Path.Combine(GetClockHandsFolder,"HourHand.svg") ;
+		PreferencesInitial.SetPreferences();
+
+
+		CurrentHourHandNum = MyPreferences.Get("CurrentHourHandNum", CurrentHourHandNum);
+		CurrentMinuteHandNum = MyPreferences.Get("CurrentMinuteHandNum", CurrentMinuteHandNum);
+		CurrentSecondHandNum =MyPreferences.Get("CurrentSecondHandNum", CurrentSecondHandNum);
+		CurrentDialNum = MyPreferences.Get("CurrentDialHandNum", CurrentDialNum);
+		CurrentIndexNum = MyPreferences.Get("CurrentIndexHandNum", CurrentIndexNum);
+		CurrentDialBackgroundNum = MyPreferences.Get("CurrentDialBackGroundHandNum", CurrentDialBackgroundNum);
+		CurrentBackgroundNum = MyPreferences.Get("CurrentBackGroundHandNum", CurrentBackgroundNum);
+
+
+
 		timer.Elapsed += TimerCallback; // タイマーのイベントハンドラにTimerCallback関数を登録
 		timer.Start(); // タイマーを開始
 	}
 
+	protected override Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (firstRender)
+		{
+			InvokeAsync(async () =>
+			{
+				CP = await CCM.GetClockParts();
+
+
+				secondURL = CP.SecondHands[CurrentSecondHandNum];
+				minuteURL = CP.MinuteHands[CurrentMinuteHandNum];
+				hourURL = CP.HourHands[CurrentHourHandNum];
+				indexURL = CP.Index[CurrentIndexNum];
+				dialURL = CP.Dials[CurrentDialNum];
+				dialBackgroundURL = CP.DialBackgrounds[CurrentDialBackgroundNum];
+				backGroundURL = CP.Backgrounds[CurrentBackgroundNum];
+			});
+				
+		}
+		return base.OnAfterRenderAsync(firstRender);
+	}
+
 	void TimerCallback(object sender, ElapsedEventArgs e)
 	{
-			var now = DateTime.Now; // 現在時刻を取得
-			secondAngle = (now.Second + now.Millisecond / 1000.0) * 6;
-			minuteAngle = (now.Minute + now.Second / 60.0) * 6; // 分針の角度を計算（度単位）
-			hourAngle = (now.Hour % 12 + now.Minute / 60.0) * 30; // 時針の角度を計算（度単位）
+		var now = DateTime.Now; // 現在時刻を取得
+		secondAngle = (now.Second + now.Millisecond / 1000.0) * 6;
+		minuteAngle = (now.Minute + now.Second / 60.0) * 6; // 分針の角度を計算（度単位）
+		hourAngle = (now.Hour % 12 + now.Minute / 60.0) * 30; // 時針の角度を計算（度単位）
 		InvokeAsync(StateHasChanged);
 	}
+
+	private bool show = false;
+
+	// Viewの表示状態に応じたCSSクラスを返すプロパティ
+	private string ShowClass => show ? "show" : "";
+
+	// Viewの表示状態を切り替えるメソッド
+	private void ToggleShow()
+	{
+		show = !show;
+	}
+
+
+	private enum SettingState{ Hand, Dial, Index, BackGround};
+	SettingState CurrentSettingState = SettingState.Hand;
+
+	private void SetSettingState(SettingState e)
+	{
+		CurrentSettingState = e;
+		// 出力を変更するコード
+	}
+
+	private void SetDial(string dial)
+	{
+	}
+
 }
