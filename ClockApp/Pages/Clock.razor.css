@@ -7,11 +7,16 @@ transition: width 0.5s ease-in-out; /* アニメーションの設定 */
 }
 
 .custombutton{
+  margin:10px;
+  color:white;
+  mix-blend-mode:difference;
+  font-size:22px;
+}
+.rightTop{
   position: fixed;
   top: 0;
-  right: 60px;
-  margin:10px;
-  filter:opacity(0.5);
+  right: 0px;
+
 }
 .custombutton:hover{
   filter:opacity(0.7);
@@ -24,7 +29,7 @@ transition: width 0.5s ease-in-out; /* アニメーションの設定 */
   bottom: 0;
   left: 0;
   height: 45vh;
-  transform: translateY(110%);
+  transform: translateY(140%);
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;

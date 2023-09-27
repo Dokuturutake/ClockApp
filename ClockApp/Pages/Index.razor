@@ -1,22 +1,12 @@
 ﻿@page "/"
 @using ClockApp.Data;
 <style>
-	body{
-		background-image:url("/images/BackGround/BackGround3.jpg");
-		background-position: center center;
-		background-size:100vh 100vh;
-		background-color:#DCC0A3;
-background-blend-mode: multiply;
-	}
 </style>
 
 <div class="background">
 
 </div>
 <div class="statebuttons">
-<span class="oi oi-clock statebutton" @onclick="() => ChangeSetting(ClockState.Clock)" aria-hidden="true"></span>
-<span class="oi oi-contrast statebutton" @onclick="() => ChangeSetting(ClockState.Gacha)" aria-hidden="true"></span>
-<span class="oi oi-cog statebutton" @onclick="() => ChangeSetting(ClockState.Setting)" aria-hidden="true"></span>
 </div>
 
 @if(CurrentState == ClockState.Clock)

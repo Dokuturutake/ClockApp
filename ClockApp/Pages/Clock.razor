@@ -1,13 +1,17 @@
 ﻿@using System.Timers
 @using ClockApp.Data;
 <style>
+	body{
+		background-image:url(@BackgroundImage);
+		background-position: center center;
+		background-size:100vh 100vh;
+		background-color:@backgroundColor;
+		background-blend-mode: multiply;
+	}
 	.editer{
-	  display: flex;
 	  width: 100vw;
-	  height: 40vh;
-	  flex-direction: column;
+	  height: 50vh;
 	  box-shadow: 0 -5px 5px rgba(0,0,0,0.2);
-	overflow: auto;
 	}
 	.editer::-webkit-scrollbar {
 		width: 5px;
@@ -23,17 +27,26 @@
 	 mix-blend-mode:difference;
 
 }
-	.handset{
-		background-color:#CECE5A;
+	.hourHandRadio{
+		background-color:#84a59d;
 	}
-	.dialset{
-		background-color:#FFE17B;
+	.minuteHandRadio{
+		background-color:#fbf8e7;
 	}
-	.indexset{
-		background-color:#FD8D14;
+	.secondHandRadio{
+		background-color:#f5cac3;
 	}
-	.backgroundset{
-		background-color:#C51605;
+	.dialRadio{
+		background-color:#f28482;
+	}
+	.dialBackgroundRadio{
+		background-color:#f6bd60;
+	}
+	.indexRadio{
+		background-color:#8589bf;
+	}
+	.backgroundRadio{
+		background-color:#212023;
 	}
 	.hamburger-top{
 		height:8vh;
@@ -56,14 +69,106 @@
 	input[type="radio"]:checked+label {
   z-index: 99999;
 }
+
+#RoundColorPicker{
+	opacity:0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color:transparent;
+	border:none;
+	cursor:pointer;
+	height:20px;
+	width:22px;
+}
+
+#RoundColorPicker::-webkit-color-swatch{
+	border-radius:50%;
+	  box-shadow: 0px 0px 5px rgba(0,0,0,0.8);
+}
+
+.colorChangeButton{
+	border-radius:50%;
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.8);
+	filter:invert(1);
+
+}
+
+.colorChangeMark{
+	 mix-blend-mode:normal;
+	 margin:10px;
+	 font-size:22px;
+	 filter:invert(1);
+}
+
+.colorPicker{
+	position: fixed;
+	top: -50px;
+	right: 10px;
+}
+	
 </style>
 
-<div class="custombutton">
+<div class="custombutton rightTop">
 <span class="oi oi-wrench" aria-hidden="true" @onclick="ToggleShow"></span>
 </div>
 
 <div class="clockCentering @ShowClass">
 	<svg width="100%" height="100%" viewBox="0 0 300 300">
+		@if (dialBackgroundURL != null)
+		{
+			<defs>
+				<mask id="dialBackground">
+					<image width="300" height="300" href="@dialBackgroundURL.Path"/>
+				</mask>
+			</defs>
+			<rect class="dialbackground" width="300" height="300" mask="url(#dialBackground)" fill="@dialBackgroundColor"/>
+		}
+		@if(indexURL!= null)
+		{
+			<defs>
+				<mask id="index">
+					<image width="300" height="300" href="@indexURL.Path"/>
+				</mask>
+			</defs>
+			<rect width="300" height="300" mask="url(#index)" fill="@indexColor"/>
+		}
+		@if(dialURL != null)
+		{
+			<defs>
+				<mask id="dial">
+					<image width="300" height="300" href="@dialURL.Path"/>
+				</mask>
+			</defs>
+			<rect width="300" height="300" mask="url(#dial)" fill="@dialColor"/>
+		}
+		@if( hourURL!= null)
+		{
+			<defs>
+				<mask id="hour">
+					<image width="300" height="300" href="@hourURL.Path"/>
+				</mask>
+			</defs>
+			<rect width="300" height="300" mask="url(#hour)" fill="@hourColor" transform="rotate(@hourAngle, 150, 150)"/>
+		}
+		@if(minuteURL!= null)
+		{
+			<defs>
+				<mask id="minute">
+					<image width="300" height="300" href="@minuteURL.Path"/>
+				</mask>
+			</defs>
+			<rect width="300" height="300" mask="url(#minute)" fill="@minuteColor" transform="rotate(@minuteAngle, 150, 150)"/>
+		}
+		@if(secondURL!= null)
+		{
+			<defs>
+				<mask id="second">
+					<image width="300" height="300" href="@secondURL.Path"/>
+				</mask>
+			</defs>
+			<rect width="300" height="300" mask="url(#second)" fill="@secondColor" transform="rotate(@secondAngle, 150, 150)"/>
+		}
 	</svg>
 </div>
 
@@ -71,44 +176,148 @@
 <div class="hamburger-view @ShowClass">
 	<div class="hamburger-top">
 	<div class="contain">
-				<input checked type="radio" id="hand" name="SetteingState" value="Hand" @onchange="() => SetSettingState(SettingState.Hand)"/>
-				<label for="hand" class="itemWrap handset">
+				<input checked type="radio" id="hourHandRadio" name="SetteingState" value="Hand" @onchange="() => SetSettingState(SettingState.HourHand)"/>
+				<label for="hourHandRadio" class="itemWrap hourHandRadio">
 				</label>
-				<input type="radio" id="dial" name="SetteingState" value="Dial" @onchange="() => SetSettingState(SettingState.Dial)"/>
-				<label for="dial" class="itemWrap dialset">
+				<input type="radio" id="minuteHandRadio" name="SetteingState" value="Hand" @onchange="() => SetSettingState(SettingState.MinuteHand)"/>
+				<label for="minuteHandRadio" class="itemWrap minuteHandRadio">
 				</label>
-				<input type="radio" id="index" name="SetteingState" value="Index" @onchange="() => SetSettingState(SettingState.Index)"/>
-				<label for="index" class="itemWrap indexset">
+				<input type="radio" id="secondHandRadio" name="SetteingState" value="Hand" @onchange="() => SetSettingState(SettingState.SecondHand)"/>
+				<label for="secondHandRadio" class="itemWrap secondHandRadio">
 				</label>
-				<input type="radio" id="background" name="SetteingState" value="Background" @onchange="() => SetSettingState(SettingState.BackGround)"/>
-				<label for="background" class="itemWrap backgroundset">
+				<input type="radio" id="dialRadio" name="SetteingState" value="Dial" @onchange="() => SetSettingState(SettingState.Dial)"/>
+				<label for="dialRadio" class="itemWrap dialRadio">
+				</label>
+				<input type="radio" id="dialBackgroundRadio" name="SetteingState" value="Dial" @onchange="() => SetSettingState(SettingState.DialBackground)"/>
+				<label for="dialBackgroundRadio" class="itemWrap dialBackgroundRadio">
+				</label>
+				<input type="radio" id="indexRadio" name="SetteingState" value="Index" @onchange="() => SetSettingState(SettingState.Index)"/>
+				<label for="indexRadio" class="itemWrap indexRadio">
+				</label>
+				<input type="radio" id="backgroundRadio" name="SetteingState" value="Background" @onchange="() => SetSettingState(SettingState.BackGround)"/>
+				<label for="backgroundRadio" class="itemWrap backgroundRadio">
 				</label>
 		</div>
 	</div>
 
-	@switch (CurrentSettingState)
-	{
-		case SettingState.Hand:
-			<div class="editer handset">
+	@if(backGroundURL != null)
+		@switch (CurrentSettingState)
+		{
+			case SettingState.HourHand:
+				<div class="editer hourHandRadio">
+					<div class="colorPicker">
+					<input type="color" id="RoundColorPicker" value="@hourColor" @oninput="s => {hourColor= s.Value.ToString(); SetColor(nameof(hourColor), hourColor);}"/>
+					<label for="RoundColorPicker">
+						<div class="colorChangeButton" style="background-color:@hourColor">
+							<span class="oi oi-brush colorChangeMark" style="color:@hourColor"/>
+						</div>
+					</label>
+				</div>
+				<SettingItems selectedNum="@hourURL.ID" Items="CP.HourHands" isHand="true"
+				 OnItemChangedCallback="item=>{hourURL = item; SetClockPartNum(nameof(CurrentHourHandNum), item.ID);}"
+				 selectedColor="@hourColor"/>
+			</div>
+			break;
+
+		case SettingState.MinuteHand:
+			<div class="editer minuteHandRadio">
+				<div class="colorPicker">
+					<input type="color" id="RoundColorPicker" value="@minuteColor" @oninput="s =>{ minuteColor= s.Value.ToString(); SetColor(nameof(minuteColor), minuteColor);}"/>
+					<label for="RoundColorPicker">
+						<div class="colorChangeButton" style="background-color:@minuteColor">
+							<span class="oi oi-brush colorChangeMark" style="color:@minuteColor"/>
+						</div>
+					</label>
+				</div>
+				<SettingItems selectedNum="@minuteURL.ID" Items="CP.MinuteHands" isHand="true"
+				selectedColor="@minuteColor"
+				 OnItemChangedCallback="item=>{minuteURL = item; SetClockPartNum(nameof(CurrentMinuteHandNum), item.ID);}"/>
+			</div>
+			break;
+
+		case SettingState.SecondHand:
+			<div class="editer secondHandRadio">
+				<div class="colorPicker">
+					<input type="color" id="RoundColorPicker" value="@secondColor" @oninput="s =>{secondColor= s.Value.ToString(); SetColor(nameof(secondColor),secondColor);}"/>
+					<label for="RoundColorPicker">
+						<div class="colorChangeButton" style="background-color:@secondColor">
+							<span class="oi oi-brush colorChangeMark" style="color:@secondColor"/>
+						</div>
+					</label>
+				</div>
+				<SettingItems selectedNum="@secondURL.ID" Items="CP.SecondHands" isHand="true"
+				selectedColor="@secondColor"
+				 OnItemChangedCallback="item=>{secondURL = item; SetClockPartNum(nameof(CurrentSecondHandNum), item.ID);}"/>
 			</div>
 			break;
 
 		case SettingState.Index:
-			<div class="editer indexset">
+			<div class="editer indexRadio">
+				<div class="colorPicker">
+					<input type="color" id="RoundColorPicker" value="@indexColor" @oninput="s =>{indexColor= s.Value.ToString(); SetColor(nameof(indexColor), indexColor);}"/>
+					<label for="RoundColorPicker">
+						<div class="colorChangeButton" style="background-color:@indexColor">
+							<span class="oi oi-brush colorChangeMark" style="color:@indexColor"/>
+						</div>
+					</label>
+				</div>
+				<SettingItems selectedNum="@indexURL.ID" Items="CP.Index"
+				selectedColor="@indexColor"
+				 OnItemChangedCallback="item=>{indexURL= item; SetClockPartNum(nameof(CurrentIndexNum), item.ID);}"/>
 			</div>
 			break;
 
+
 		case SettingState.Dial:
-			<div class="editer dialset">
+			<div class="editer dialRadio">
+				<div class="colorPicker">
+					<input type="color" id="RoundColorPicker" value="@dialColor" @oninput="s =>{dialColor= s.Value.ToString(); SetColor(nameof(dialColor),dialColor);}"/>
+					<label for="RoundColorPicker">
+						<div class="colorChangeButton" style="background-color:@dialColor">
+							<span class="oi oi-brush colorChangeMark" style="color:@dialColor"/>
+						</div>
+					</label>
+				</div>
+				<SettingItems selectedNum="@dialURL.ID" Items="CP.Dials"
+				selectedColor="@dialColor"
+				 OnItemChangedCallback="item=>{dialURL= item; SetClockPartNum(nameof(CurrentDialNum), item.ID);}"/>
+			</div>
+			break;
+
+		case SettingState.DialBackground:
+			<div class="editer dialBackgroundRadio">
+				<div class="colorPicker">
+					<input type="color" id="RoundColorPicker" value="@dialBackgroundColor" @oninput="s =>{dialBackgroundColor= s.Value.ToString(); SetColor(nameof(dialBackgroundColor),dialBackgroundColor);}"/>
+					<label for="RoundColorPicker">
+						<div class="colorChangeButton" style="background-color:@dialBackgroundColor">
+							<span class="oi oi-brush colorChangeMark" style="color:@dialBackgroundColor"/>
+						</div>
+					</label>
+				</div>
+				<SettingItems selectedNum="@dialBackgroundURL.ID" Items="CP.DialBackgrounds"
+				selectedColor="@dialBackgroundColor"
+				 OnItemChangedCallback="item=>{dialBackgroundURL= item; SetClockPartNum(nameof(CurrentDialBackgroundNum), item.ID);}"/>
 			</div>
 			break;
 
 		case SettingState.BackGround:
-			<div class="editer backgroundset">
+			<div class="editer backgroundRadio">
+				<div class="colorPicker">
+					<input type="color" id="RoundColorPicker" value="@backgroundColor" @oninput="s =>{backgroundColor= s.Value.ToString(); SetColor(nameof(backgroundColor),backgroundColor);}"/>
+					<label for="RoundColorPicker">
+						<div class="colorChangeButton" style="background-color:@backgroundColor">
+							<span class="oi oi-brush colorChangeMark" style="color:@backgroundColor"/>
+						</div>
+					</label>
+				</div>
+				<SettingItems selectedNum="@backGroundURL.ID" Items="CP.Backgrounds"
+				selectedColor="@backgroundColor"
+				 OnItemChangedCallback="item=>{backGroundURL= item; BackgroundImage = item.Path; SetClockPartNum(nameof(CurrentBackgroundNum), item.ID);}"/>
 			</div>
 			break;
 	}
 </div>
+
 
 @code {
 
@@ -135,24 +344,42 @@
 	private ClockPart minuteURL;  // 分針の画像（URL）
 	private ClockPart hourURL; // 時針の画像（URL）
 	private ClockPart indexURL;
-	private ClockPart dialURL;
+	private ClockPart dialURL ;
 	private ClockPart dialBackgroundURL;
 	private ClockPart backGroundURL;
+	public string BackgroundImage = "images/BackGround/0.jpg";
+
+	private string secondColor = "#FFFBE9";
+	private string minuteColor = "#E3CAA5";
+	private string hourColor = "#E3CAA5";
+	private string indexColor = "#CEAB93";
+	private string dialColor = "#CEAB93";
+	private string dialBackgroundColor = "#AD8B73";
+	private string backgroundColor = "#E3CAA5";
 
 	public Clock()
 	{
 		PreferencesInitial.SetPreferences();
 
+		CurrentHourHandNum = GetClockPartNum(nameof(CurrentHourHandNum),CurrentHourHandNum);
+		CurrentHourHandNum = GetClockPartNum(nameof(CurrentHourHandNum), CurrentHourHandNum);
+		CurrentMinuteHandNum = GetClockPartNum(nameof(CurrentMinuteHandNum), CurrentMinuteHandNum);
+		CurrentSecondHandNum = GetClockPartNum(nameof(CurrentSecondHandNum), CurrentSecondHandNum);
+		CurrentDialNum = GetClockPartNum(nameof(CurrentDialNum), CurrentDialNum);
+		CurrentIndexNum = GetClockPartNum(nameof(CurrentIndexNum), CurrentIndexNum);
+		CurrentDialBackgroundNum = GetClockPartNum(nameof(CurrentDialBackgroundNum), CurrentDialBackgroundNum);
+		CurrentBackgroundNum = GetClockPartNum(nameof(CurrentBackgroundNum), CurrentBackgroundNum);
 
-		CurrentHourHandNum = MyPreferences.Get("CurrentHourHandNum", CurrentHourHandNum);
-		CurrentMinuteHandNum = MyPreferences.Get("CurrentMinuteHandNum", CurrentMinuteHandNum);
-		CurrentSecondHandNum =MyPreferences.Get("CurrentSecondHandNum", CurrentSecondHandNum);
-		CurrentDialNum = MyPreferences.Get("CurrentDialHandNum", CurrentDialNum);
-		CurrentIndexNum = MyPreferences.Get("CurrentIndexHandNum", CurrentIndexNum);
-		CurrentDialBackgroundNum = MyPreferences.Get("CurrentDialBackGroundHandNum", CurrentDialBackgroundNum);
-		CurrentBackgroundNum = MyPreferences.Get("CurrentBackGroundHandNum", CurrentBackgroundNum);
+		// 色コードを取得する
+		secondColor = GetColor(nameof(secondColor), secondColor);
+		minuteColor = GetColor(nameof(minuteColor), minuteColor);
+		hourColor = GetColor(nameof(hourColor), hourColor);
+		indexColor = GetColor(nameof(indexColor), indexColor);
+		dialColor = GetColor(nameof(dialColor), dialColor);
+		dialBackgroundColor = GetColor(nameof(dialBackgroundColor), dialBackgroundColor);
+		backgroundColor = GetColor(nameof(backgroundColor), backgroundColor);
 
-
+		secondColor = MyPreferences.Get("SecondColor", secondColor);
 
 		timer.Elapsed += TimerCallback; // タイマーのイベントハンドラにTimerCallback関数を登録
 		timer.Start(); // タイマーを開始
@@ -166,7 +393,6 @@
 			{
 				CP = await CCM.GetClockParts();
 
-
 				secondURL = CP.SecondHands[CurrentSecondHandNum];
 				minuteURL = CP.MinuteHands[CurrentMinuteHandNum];
 				hourURL = CP.HourHands[CurrentHourHandNum];
@@ -174,8 +400,11 @@
 				dialURL = CP.Dials[CurrentDialNum];
 				dialBackgroundURL = CP.DialBackgrounds[CurrentDialBackgroundNum];
 				backGroundURL = CP.Backgrounds[CurrentBackgroundNum];
+				BackgroundImage = backGroundURL.Path;
+
+				StateHasChanged();
 			});
-				
+
 		}
 		return base.OnAfterRenderAsync(firstRender);
 	}
@@ -201,8 +430,8 @@
 	}
 
 
-	private enum SettingState{ Hand, Dial, Index, BackGround};
-	SettingState CurrentSettingState = SettingState.Hand;
+	private enum SettingState{ HourHand, MinuteHand, SecondHand, Dial, DialBackground, Index, BackGround};
+	SettingState CurrentSettingState = SettingState.HourHand;
 
 	private void SetSettingState(SettingState e)
 	{
@@ -210,8 +439,41 @@
 		// 出力を変更するコード
 	}
 
-	private void SetDial(string dial)
+	private void stateChange()
 	{
+		InvokeAsync(StateHasChanged);
 	}
 
+	private int GetClockPartNum(string name, int num)
+	{
+		try
+		{
+			return IntBinarySaveRoad.LoadIntBinary(name);
+		}
+		catch
+		{
+			return num;
+		}
+	}
+
+	private void SetClockPartNum(string name, int num)
+	{
+		IntBinarySaveRoad.SaveIntBinary(num, name);
+	}
+
+	private string GetColor(string name, string color)
+	{
+		try
+		{
+			return ColorSaveLoad.LoadColor(name);
+		}
+		catch
+		{
+			return color;
+		}
+	}
+	private void SetColor(string name, string color)
+	{
+		ColorSaveLoad.SaveColor(color,name);
+	}
 }

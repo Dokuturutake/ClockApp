@@ -1,5 +1,106 @@
-﻿<h3>SettingItems</h3>
+﻿@using ClockApp.Data;
+<style>
+	.container{
+    scroll-snap-type: x mandatory;
+    width: 100%;
+	height:100%;
+    overflow-x: scroll;
+    display: flex;
+	flex-wrap:nowrap;
+    -webkit-overflow-scrolling: touch; /* スマホ対応のため必須 */
+    overflow-scrolling: touch; /* スマホ対応のため必須 */
+	margin:0;
+	padding:0;
+	}
+
+	.selectedItem{
+		scroll-snap-align: center;
+		height: 100%;
+		width: 33%;
+		flex: none;
+		padding:
+		border:2px solid ;
+	}
+
+	.SVGimage{
+		display:block;
+		margin: auto;
+	}
+
+	input[type="radio"]{
+		display:none;
+	}
+	input[type="radio"]+label.selectedItem{
+		filter:opacity(0.4);
+	}
+
+		input[type="radio"]:checked+label.selectedItem {
+		filter:opacity(1);
+		border:4px solid ;
+	  z-index: 99999;
+	  box-shadow: 0px -5px 5px rgba(0,0,0,0.3);
+	}
+
+</style>
+
+<div class="container">
+
+	@foreach (var item in Items)
+	{
+		ClockPart part = item;
+
+		if(item.ID == selectedNum)
+		{
+			<input checked type="radio" id="@part.NAME" name="item" @onchange="() =>ItemChanged(part)"/>
+		}
+		else
+		{
+			<input type="radio" id="@part.NAME" name="item" @onchange="() =>ItemChanged(part)"/>
+		}
+
+		<label for="@part.NAME" class="selectedItem">
+			<svg class="SVGimage" width="100%" height="30vh" viewBox="0 0 300 300">
+				<defs>
+					<mask id="@item.ID">
+						@if (isHand)
+						{
+							<image x="-150" width="600" height="600" href="@item.Path"/>
+						}
+						else
+						{
+							<image width="300" height="300" href="@item.Path"/>
+						}
+					</mask>
+				</defs>
+				<rect width="300" height="300" mask="url(#@item.ID)" fill="@selectedColor"/>
+			</svg>
+		</label>
+
+	}
+
+</div>
 
 @code {
+	[Parameter]
+	public ClockPart[] Items { get; set;}
+	[Parameter]
+	public int selectedNum { get; set; }
 
+	[Parameter]
+	public string selectedColor { get; set; } = "#aaa";
+
+	private ClockPart selectedPart => Items[selectedNum];
+
+	[Parameter]
+	public bool isHand { get; set; } = false;
+
+
+	async void ItemChanged(ClockPart part)
+	{
+		selectedNum = part.ID;
+		await OnItemChangedCallback.InvokeAsync(part);
+	}
+
+	[Parameter]
+	public EventCallback<ClockPart> OnItemChangedCallback { get; set; }
 }

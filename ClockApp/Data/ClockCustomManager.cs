@@ -10,12 +10,12 @@ namespace ClockApp.Data;
 class ClockCustomManager
 {
 
-    private string rootpath = "wwwroot/MasterDatas";
+    private readonly string rootpath = "wwwroot/MasterDatas";
 
 	// コンストラクタを定義します
     public async Task<ClockParts> GetClockParts()
     {
-        ClockParts CP = new ClockParts();
+        ClockParts CP = new();
             // 各プロパティに対応するCSVファイルのパスを指定します
             string hourHandsPath = "MasterHourHand.csv";
             string minuteHandsPath = "MasterMinuteHand.csv";
@@ -43,26 +43,26 @@ class ClockCustomManager
         var clockPartList = new List<ClockPart>();
         var fullPath = Path.Combine(rootpath, csvPath);
         using var stream = await FileSystem.Current.OpenAppPackageFileAsync(fullPath);
-        using (var reader = new StreamReader(stream))
-        {
-            // 最初の行はヘッダーなので読み飛ばします
-            reader.ReadLine();
-            while (!reader.EndOfStream)
-            {
-                // 行をカンマで分割して配列にします
-                string[] values = reader.ReadLine().Split(',');
-                // 配列の要素をClockPartクラスのプロパティに割り当てます
-                ClockPart clockPart = new ClockPart();
-                clockPart.ID = int.Parse(values[0]);
-                clockPart.NAME = values[1];
-                clockPart.Path = values[2];
-                // リストに追加します
-                clockPartList.Add(clockPart);
-            }
+		using var reader = new StreamReader(stream);
+		// 最初の行はヘッダーなので読み飛ばします
+		reader.ReadLine();
+		while (!reader.EndOfStream)
+		{
+			// 行をカンマで分割して配列にします
+			string[] values = reader.ReadLine().Split(',');
+			// 配列の要素をClockPartクラスのプロパティに割り当てます
+			ClockPart clockPart = new()
+			{
+				ID = int.Parse(values[0]),
+				NAME = values[1],
+				Path = values[2]
+			};
+			// リストに追加します
+			clockPartList.Add(clockPart);
+		}
 
-            return clockPartList.ToArray();
-        }
+		return clockPartList.ToArray();
 
 
-    }
+	}
 }

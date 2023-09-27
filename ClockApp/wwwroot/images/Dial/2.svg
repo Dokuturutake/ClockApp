@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
-   sodipodi:docname="RomanNumbersDialAAAA.svg"
+   sodipodi:docname="2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,9 +25,9 @@
      showgrid="false"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-page="true"
-     inkscape:zoom="1"
-     inkscape:cx="-194.5"
-     inkscape:cy="153"
+     inkscape:zoom="2.0000001"
+     inkscape:cx="65.249998"
+     inkscape:cy="169.5"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -41,7 +41,8 @@
      inkscape:snap-others="true"
      inkscape:snap-to-guides="true"
      inkscape:snap-nodes="true"
-     inkscape:snap-center="true">
+     inkscape:snap-center="true"
+     inkscape:snap-smooth-nodes="true">
     <sodipodi:guide
        position="0,79.374999"
        orientation="300,0"
@@ -63,7 +64,11 @@
        orientation="150,0"
        id="guide6605" />
     <sodipodi:guide
-       position="39.6875,39.687499"
+       position="0,39.687499"
+       orientation="0,150"
+       id="guide6607" />
+    <sodipodi:guide
+       position="39.819791,53.445833"
        orientation="-150,0"
        id="guide6609" />
     <sodipodi:guide
@@ -134,165 +139,154 @@
        position="79.375,2.6458349"
        orientation="0,-10.00001"
        id="guide6860" />
+    <sodipodi:guide
+       position="-46.653732,33.649937"
+       orientation="0,2.2500058"
+       id="guide137315" />
+    <sodipodi:guide
+       position="-46.058418,33.649937"
+       orientation="-71.999998,0"
+       id="guide137317" />
+    <sodipodi:guide
+       position="-66.268867,74.612499"
+       orientation="104.5,0"
+       id="guide164407" />
+    <sodipodi:guide
+       position="-66.268867,46.963542"
+       orientation="0,13.500006"
+       id="guide164409" />
+    <sodipodi:guide
+       position="-62.696991,46.963542"
+       orientation="-104.5,0"
+       id="guide164411" />
+    <sodipodi:guide
+       position="-62.696991,74.612499"
+       orientation="0,-13.500006"
+       id="guide164413" />
   </sodipodi:namedview>
   <defs
      id="defs2">
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109424"
+       effect="bspline"
+       id="path-effect147639"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109408"
+       effect="bspline"
+       id="path-effect147633"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109392"
+       effect="bspline"
+       id="path-effect146281"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109376"
+       effect="bspline"
+       id="path-effect145226"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109360"
+       effect="bspline"
+       id="path-effect143350"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109344"
+       effect="bspline"
+       id="path-effect142329"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109328"
+       effect="bspline"
+       id="path-effect139725"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109312"
+       effect="bspline"
+       id="path-effect138869"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109296"
+       effect="bspline"
+       id="path-effect138773"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109280"
+       effect="bspline"
+       id="path-effect41875"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect109264"
+       effect="bspline"
+       id="path-effect23855"
        is_visible="true"
        lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
-    <inkscape:path-effect
-       effect="perspective-envelope"
-       up_left_point="12.51,8.0590037"
-       up_right_point="71.345472,8.0590037"
-       down_left_point="8.0131317,71.391344"
-       down_right_point="71.345472,71.391344"
-       id="path-effect21225"
-       is_visible="true"
-       lpeversion="1"
-       deform_type="perspective"
-       horizontal_mirror="false"
-       vertical_mirror="false"
-       overflow_perspective="false" />
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <inkscape:path-effect
        effect="transform_2pts"
        start="-43.693851,11.565187"
@@ -311,209 +305,330 @@
        flip_horizontal="false"
        lock_length="false"
        lock_angle="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect147633-1"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect143350-7"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect139725-1"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect138773-5"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect143350-4"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect147633-8"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect147633-1-4"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect143350-7-0"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter1015"
+       x="-0.032142855"
+       y="-0.032142855"
+       width="1.0642857"
+       height="1.0642857"
+       inkscape:menu-tooltip="Fades hue progressively to white"
+       inkscape:menu="Color">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix1013"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix884" />
+      <feColorMatrix
+         id="feColorMatrix886"
+         values="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="r"
+         in="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix888"
+         values="0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="g"
+         in="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix890"
+         values="0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="b"
+         in="fbSourceGraphic" />
+      <feBlend
+         in2="g"
+         id="feBlend892"
+         result="minrg"
+         in="r"
+         mode="darken" />
+      <feBlend
+         in2="b"
+         id="feBlend894"
+         result="p"
+         in="minrg"
+         mode="darken" />
+      <feBlend
+         in2="g"
+         id="feBlend896"
+         result="maxrg"
+         in="r"
+         mode="lighten" />
+      <feBlend
+         in2="b"
+         id="feBlend898"
+         result="q"
+         in="maxrg"
+         mode="lighten" />
+      <feComponentTransfer
+         id="feComponentTransfer900"
+         result="q2"
+         in="q">
+        <feFuncR
+           id="feFuncR902"
+           slope="0"
+           type="linear" />
+      </feComponentTransfer>
+      <feBlend
+         in2="q2"
+         id="feBlend904"
+         result="pq"
+         in="p"
+         mode="lighten" />
+      <feColorMatrix
+         id="feColorMatrix906"
+         values="-1 1 0 0 0 -1 1 0 0 0 -1 1 0 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="qminp"
+         in="pq" />
+      <feComposite
+         in2="qminp"
+         id="feComposite908"
+         k3="1"
+         operator="arithmetic"
+         result="qminpc"
+         in="qminp" />
+      <feBlend
+         in2="fbSourceGraphic"
+         id="feBlend910"
+         result="result2"
+         mode="screen" />
+      <feComposite
+         in2="fbSourceGraphic"
+         id="feComposite912"
+         operator="in"
+         in="result2"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix1014" />
+      <feColorMatrix
+         id="feColorMatrix1016"
+         values="0.21 0.72 0.072 10 0 0.21 0.72 0.072 10 0 0.21 0.72 0.072 10 0 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter1019"
+       x="-0.003250181"
+       y="-0.003250181"
+       width="1.0065004"
+       height="1.0065004"
+       inkscape:menu-tooltip="Fades hue progressively to white"
+       inkscape:menu="Color">
+      <feColorMatrix
+         values="0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0.21 0.72 0.072 0 0 0 0 0 1 0 "
+         id="feColorMatrix1017"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix914" />
+      <feColorMatrix
+         id="feColorMatrix916"
+         values="1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="r"
+         in="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix918"
+         values="0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="g"
+         in="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix920"
+         values="0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="b"
+         in="fbSourceGraphic" />
+      <feBlend
+         in2="g"
+         id="feBlend922"
+         result="minrg"
+         in="r"
+         mode="darken" />
+      <feBlend
+         in2="b"
+         id="feBlend924"
+         result="p"
+         in="minrg"
+         mode="darken" />
+      <feBlend
+         in2="g"
+         id="feBlend926"
+         result="maxrg"
+         in="r"
+         mode="lighten" />
+      <feBlend
+         in2="b"
+         id="feBlend928"
+         result="q"
+         in="maxrg"
+         mode="lighten" />
+      <feComponentTransfer
+         id="feComponentTransfer930"
+         result="q2"
+         in="q">
+        <feFuncR
+           id="feFuncR932"
+           slope="0"
+           type="linear" />
+      </feComponentTransfer>
+      <feBlend
+         in2="q2"
+         id="feBlend934"
+         result="pq"
+         in="p"
+         mode="lighten" />
+      <feColorMatrix
+         id="feColorMatrix936"
+         values="-1 1 0 0 0 -1 1 0 0 0 -1 1 0 0 0 0 0 0 0 1 "
+         type="matrix"
+         result="qminp"
+         in="pq" />
+      <feComposite
+         in2="qminp"
+         id="feComposite938"
+         k3="1"
+         operator="arithmetic"
+         result="qminpc"
+         in="qminp" />
+      <feBlend
+         in2="fbSourceGraphic"
+         id="feBlend940"
+         result="result2"
+         mode="screen" />
+      <feComposite
+         in2="fbSourceGraphic"
+         id="feComposite942"
+         operator="in"
+         in="result2"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix1018" />
+      <feColorMatrix
+         id="feColorMatrix1020"
+         values="0.21 0.72 0.072 10 0 0.21 0.72 0.072 10 0 0.21 0.72 0.072 10 0 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <circle
-       style="fill:#fffcf6;fill-opacity:1;stroke-width:0.264583"
-       id="path1042"
-       cx="39.6875"
+       style="fill:none;stroke:#ffffff;stroke-width:4.7625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1009"
+       cx="39.81979"
        cy="39.6875"
        r="37.041668" />
-    <g
-       id="g109152"
-       inkscape:transform-center-y="-15.877462">
-      <g
-         id="g21223"
-         inkscape:path-effect="#path-effect21225"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g182398"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109260"
-       inkscape:transform-center-y="-13.182811"
-       transform="rotate(30,39.704947,39.6875)"
-       inkscape:transform-center-x="-6.9407271">
-      <g
-         id="g109256"
-         inkscape:path-effect="#path-effect109264"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109254"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109276"
-       inkscape:transform-center-y="-6.9558363"
-       transform="rotate(60,39.704947,39.6875)"
-       inkscape:transform-center-x="-13.174088">
-      <g
-         id="g109272"
-         inkscape:path-effect="#path-effect109280"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109270"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109292"
-       transform="rotate(90,39.704947,39.6875)"
-       inkscape:transform-center-x="-15.877463">
-      <g
-         id="g109288"
-         inkscape:path-effect="#path-effect109296"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109286"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109308"
-       transform="rotate(120,39.704947,39.6875)"
-       inkscape:transform-center-x="-13.182812"
-       inkscape:transform-center-y="6.9407271">
-      <g
-         id="g109304"
-         inkscape:path-effect="#path-effect109312"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109302"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109324"
-       transform="rotate(150,39.704947,39.6875)"
-       inkscape:transform-center-x="-6.9558373"
-       inkscape:transform-center-y="13.174088">
-      <g
-         id="g109320"
-         inkscape:path-effect="#path-effect109328"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109318"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109340"
-       transform="rotate(180,39.704947,39.6875)"
-       inkscape:transform-center-y="15.877463">
-      <g
-         id="g109336"
-         inkscape:path-effect="#path-effect109344"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109334"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109356"
-       transform="rotate(-150,39.704947,39.6875)"
-       inkscape:transform-center-y="13.182812"
-       inkscape:transform-center-x="6.9407271">
-      <g
-         id="g109352"
-         inkscape:path-effect="#path-effect109360"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109350"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109372"
-       transform="rotate(-120,39.704947,39.6875)"
-       inkscape:transform-center-y="6.9558373"
-       inkscape:transform-center-x="13.174088">
-      <g
-         id="g109368"
-         inkscape:path-effect="#path-effect109376"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109366"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109388"
-       transform="rotate(-90,39.704947,39.6875)"
-       inkscape:transform-center-x="15.877463">
-      <g
-         id="g109384"
-         inkscape:path-effect="#path-effect109392"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109382"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
-    <g
-       id="g109404"
-       transform="rotate(-60,39.704947,39.6875)"
-       inkscape:transform-center-x="13.182812"
-       inkscape:transform-center-y="-6.9407271">
-      <g
-         id="g109400"
-         inkscape:path-effect="#path-effect109408"
-         transform="translate(-0.20899333)"
-         style="fill:#c83737;fill-opacity:1">
-        <g
-           id="g109398"
-           inkscape:transform-center-x="-0.13118375"
-           inkscape:transform-center-y="-35.083558"
-           style="fill:#c83737;fill-opacity:1"
-           transform="matrix(1,0,0,2.2071169,0,-9.8593063)" />
-      </g>
-    </g>
+    <circle
+       style="fill:none;fill-opacity:1;stroke:#f5f5f5;stroke-width:0.449792;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path45249"
+       cy="39.6875"
+       cx="39.81979"
+       r="34.597458" />
   </g>
 </svg>

@@ -1,4 +1,5 @@
 ﻿ID,Name,FilePath
-0,None,"""C:\Users\arans\source\repos\ClockApp\ClockApp\wwwroot\images\Dial\0.svg"""
-1,RomanClock,"""C:\Users\arans\source\repos\ClockApp\ClockApp\wwwroot\images\Dial\1.svg"""
-2,OldClock,"""C:\Users\arans\source\repos\ClockApp\ClockApp\wwwroot\images\Dial\2.svg"""
+0,None,images\SecondHand\0.svg
+1,Simple,images\SecondHand\1.svg
+2,Metal,images\SecondHand\2.svg
+3,Stick,images\SecondHand\3.svg
